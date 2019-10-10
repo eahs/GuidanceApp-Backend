@@ -10,22 +10,22 @@ using ADSBackend.Models.LinksModels;
 
 namespace ADSBackend.Controllers
 {
-    public class LinksController : Controller
+    public class LinkController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public LinksController(ApplicationDbContext context)
+        public LinkController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Links
+        // GET: Link
         public async Task<IActionResult> Index()
         {
             return View(await _context.LinkItem.ToListAsync());
         }
 
-        // GET: Links/Details/5
+        // GET: Link/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -43,13 +43,13 @@ namespace ADSBackend.Controllers
             return View(linkItem);
         }
 
-        // GET: Links/Create
+        // GET: Link/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Links/Create
+        // POST: Link/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -65,7 +65,7 @@ namespace ADSBackend.Controllers
             return View(linkItem);
         }
 
-        // GET: Links/Edit/5
+        // GET: Link/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -81,7 +81,7 @@ namespace ADSBackend.Controllers
             return View(linkItem);
         }
 
-        // POST: Links/Edit/5
+        // POST: Link/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -116,7 +116,7 @@ namespace ADSBackend.Controllers
             return View(linkItem);
         }
 
-        // GET: Links/Delete/5
+        // GET: Link/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -134,7 +134,7 @@ namespace ADSBackend.Controllers
             return View(linkItem);
         }
 
-        // POST: Links/Delete/5
+        // POST: Link/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
