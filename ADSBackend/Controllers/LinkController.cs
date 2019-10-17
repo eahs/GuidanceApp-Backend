@@ -5,14 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using ADSBackend.Data;
 using ADSBackend.Models.LinksModels;
+using ADSBackend.Models.Identity;
+
 
 namespace ADSBackend.Controllers
 {
     public class LinkController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly RoleManager<ApplicationURL> _roleManager;
 
         public LinkController(ApplicationDbContext context)
         {
@@ -44,8 +48,9 @@ namespace ADSBackend.Controllers
         }
 
         // GET: Link/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Types = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
             return View();
         }
 
@@ -54,7 +59,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Link")] LinkItem linkItem)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Link,Type")] LinkItem linkItem)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +67,7 @@ namespace ADSBackend.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Types = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
             return View(linkItem);
         }
 
