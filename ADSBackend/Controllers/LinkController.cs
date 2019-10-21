@@ -17,15 +17,27 @@ namespace ADSBackend.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly RoleManager<ApplicationURL> _roleManager;
+        private readonly UserManager<ApplicationURL> _userManager;
 
-        public LinkController(ApplicationDbContext context)
+        public LinkController(ApplicationDbContext context, RoleManager<ApplicationURL> roleManager, UserManager<ApplicationURL> userManager)
         {
             _context = context;
+            _roleManager = roleManager;
         }
 
         // GET: Link
         public async Task<IActionResult> Index()
         {
+            var URLType = await _context.LinkItem.OrderBy(x => x.Link).ToListAsync();
+
+            var viewM = URLType.Select(x => new LinkItem
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Description = x.Description,
+                Link = x.Link,
+                Type = _userManager.GetRolesAsync(x).Result.FirstOrDefault()
+            }).ToList();
             return View(await _context.LinkItem.ToListAsync());
         }
 
