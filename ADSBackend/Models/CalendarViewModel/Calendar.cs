@@ -7,5 +7,6 @@ namespace ADSBackend.Models.CalendarViewModel
 {
     public class Calendar
     {
+ 
     }
 }
