@@ -9,8 +9,6 @@ namespace ADSBackend.Models.Identity
 {
     public class ApplicationURL : IdentityRole<int>
     {
-        [Required]
-        [Display(Name ="Website Type")]
-        public string Type { get; set; }
+
     }
 }

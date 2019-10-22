@@ -31,5 +31,22 @@ namespace ADSBackend.Configuration
                 }
             }
         }
+        public void CreateURLTypes()
+        {
+            var Types = new List<string>
+            {
+                "Test", //Used for SAT and ACT test links
+                "Scholarship" //Used for Scholarship links
+            };
+
+            foreach (var typeName in Types)
+            {
+                if (!_roleManager.RoleExistsAsync(typeName).Result)
+                {
+                    var type = new ApplicationRole { Name = typeName };
+                    _roleManager.CreateAsync(type).Wait();
+                }
+            }
+        }
     }
 }

@@ -16,28 +16,17 @@ namespace ADSBackend.Controllers
     public class LinkController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly RoleManager<ApplicationURL> _roleManager;
-        private readonly UserManager<ApplicationURL> _userManager;
+   
 
-        public LinkController(ApplicationDbContext context, RoleManager<ApplicationURL> roleManager, UserManager<ApplicationURL> userManager)
+        public LinkController(ApplicationDbContext context)
         {
             _context = context;
-            _roleManager = roleManager;
         }
 
         // GET: Link
         public async Task<IActionResult> Index()
         {
-            var URLType = await _context.LinkItem.OrderBy(x => x.Link).ToListAsync();
-
-            var viewM = URLType.Select(x => new LinkItem
-            {
-                Id = x.Id,
-                Title = x.Title,
-                Description = x.Description,
-                Link = x.Link,
-                Type = _userManager.GetRolesAsync(x).Result.FirstOrDefault()
-            }).ToList();
+           
             return View(await _context.LinkItem.ToListAsync());
         }
 
@@ -62,7 +51,7 @@ namespace ADSBackend.Controllers
         // GET: Link/Create
         public async Task<IActionResult> Create()
         {
-            ViewBag.Types = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+           
             return View();
         }
 
@@ -71,7 +60,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Link,Type")] LinkItem linkItem)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Link")] LinkItem linkItem)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +68,7 @@ namespace ADSBackend.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Types = new SelectList(await _roleManager.Roles.ToListAsync(), "Name", "Name");
+         
             return View(linkItem);
         }
 
