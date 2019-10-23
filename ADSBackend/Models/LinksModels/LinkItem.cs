@@ -19,6 +19,7 @@ namespace ADSBackend.Models.LinksModels
         [DataType(DataType.Url)]
         [Display(Name ="Website URL")]
         public string Link { get; set; }
+       
 
 
     }

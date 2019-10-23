@@ -3,6 +3,7 @@ using ADSBackend.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ADSBackend.Models.LinksModels;
+using ADSBackend.Models.CalendarViewModel;
 
 namespace ADSBackend.Data
 {
@@ -24,5 +25,7 @@ namespace ADSBackend.Data
         }
 
         public DbSet<ADSBackend.Models.LinksModels.LinkItem> LinkItem { get; set; }
+
+        public DbSet<ADSBackend.Models.CalendarViewModel.Calendar> Calendar { get; set; }
     }
 }
