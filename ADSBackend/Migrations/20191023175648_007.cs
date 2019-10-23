@@ -2,7 +2,7 @@
 
 namespace ADSBackend.Migrations
 {
-    public partial class _006 : Migration
+    public partial class _007 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

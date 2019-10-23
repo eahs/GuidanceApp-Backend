@@ -8,15 +8,20 @@ namespace ADSBackend.Models.JobsViewModel
 {
     public class Jobs
     {
+        [Key]
         public string AJobs { get; set; }
+        [Required]
+        [Display(Name = "Jobs Name")]
         public string JobTitle { get; set; }
-        [Display(Name = "Job")]
-        public string JobDetail { get; set; }
+        [Required]
         [Display(Name = "Job Description")]
+        public string JobDetail { get; set; }
+        [DataType(DataType.Currency)]
+        [Display(Name = "Hourly Wage")]
         public string Wage { get; set; }
-        [Display(Name = "Wage")]
+        [DataType(DataType.Duration)]
+        [Display(Name = "Work Hours")]
         public string Hours { get; set; }
-        [Display(Name = "Hours")]
         public string Test { get; set; }
     }
 

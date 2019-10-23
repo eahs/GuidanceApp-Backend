@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADSBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191023025522_006")]
-    partial class _006
+    [Migration("20191023170942_New005")]
+    partial class New005
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -149,7 +149,7 @@ namespace ADSBackend.Migrations
                         .IsRequired()
                         .HasMaxLength(75);
 
-                    b.Property<string>("URLType")
+                    b.Property<string>("Type")
                         .IsRequired();
 
                     b.HasKey("Id");

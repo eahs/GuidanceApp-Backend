@@ -147,6 +147,9 @@ namespace ADSBackend.Migrations
                         .IsRequired()
                         .HasMaxLength(75);
 
+                    b.Property<string>("Type")
+                        .IsRequired();
+
                     b.HasKey("Id");
 
                     b.ToTable("LinkItem");

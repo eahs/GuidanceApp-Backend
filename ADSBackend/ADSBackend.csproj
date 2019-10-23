@@ -14,6 +14,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191023025331_005.cs" />
+    <Compile Remove="Migrations\20191023025331_005.Designer.cs" />
+    <Compile Remove="Migrations\20191023025522_006.cs" />
+    <Compile Remove="Migrations\20191023025522_006.Designer.cs" />
+    <Compile Remove="Migrations\20191023025626_007.cs" />
+    <Compile Remove="Migrations\20191023025626_007.Designer.cs" />
+    <Compile Remove="Migrations\20191023025757_008.cs" />
+    <Compile Remove="Migrations\20191023025757_008.Designer.cs" />
+    <Compile Remove="Migrations\20191023143614_009.cs" />
+    <Compile Remove="Migrations\20191023143614_009.Designer.cs" />
+    <Compile Remove="Migrations\20191023152002_010.cs" />
+    <Compile Remove="Migrations\20191023152002_010.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" PrivateAssets="All" />

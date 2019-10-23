@@ -60,7 +60,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Link")] LinkItem linkItem)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Link,Type")] LinkItem linkItem)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Link")] LinkItem linkItem)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Link,Type")] LinkItem linkItem)
         {
             if (id != linkItem.Id)
             {

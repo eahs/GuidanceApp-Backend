@@ -2,22 +2,22 @@
 
 namespace ADSBackend.Migrations
 {
-    public partial class _007 : Migration
+    public partial class _005 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "URLType",
-                table: "LinkItem",
-                newName: "Type");
+            migrationBuilder.DropColumn(
+                name: "Type",
+                table: "LinkItem");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
+            migrationBuilder.AddColumn<string>(
                 name: "Type",
                 table: "LinkItem",
-                newName: "URLType");
+                nullable: false,
+                defaultValue: "");
         }
     }
 }
