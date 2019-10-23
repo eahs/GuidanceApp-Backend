@@ -51,9 +51,16 @@
                     <li is-active-route asp-controller="Calendar">
                         <a asp-controller="Calendar" asp-action="Index"><i class="fa fa-calendar"></i><span class="nav-label">Calendar</span></a>
                     </li>
+                    <li is-active-route asp-controller="Jobs">
+                        <a asp-controller="Jobs" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Jobs</span></a>
+                    </li>
+                    <li is-active-route asp-controller="Appointments">
+                        <a asp-controller="Appointments" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Appointments</span></a>
+                    </li>
                     <li is-active-route asp-controller="Configuration">
                         <a asp-controller="Configuration" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Configuration</span></a>
                     </li>
+
                 }
             }
             else
