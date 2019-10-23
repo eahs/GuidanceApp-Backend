@@ -1,7 +1,64 @@
-﻿
+﻿@model IEnumerable<ADSBackend.Models.JobsViewModel.Jobs>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Job Oppurtunities";
 }
 
-<h2>Index</h2>
+<div class="ibox">
+    <div class="ibox-title">
+        <h2>Job Opp</h2>
+        <p>
+            <a asp-action="Create" class="btn btn-info">Create New</a>
+        </p>
+    </div>
+    <div class="ibox-content">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.JobTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.JobDetail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Wage)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Hours)
+                        </th>
 
+                        <th>
+                            <p>Configure Details</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <p>@Html.DisplayFor(modelItem => item.JobTitle) <span class="badge badge-primary">Test</span></p>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.JobDetail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Wage)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Hours)
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.AJobs">Edit</a> |
+                                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.AJobs">Details</a> |
+                                <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.AJobs">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
