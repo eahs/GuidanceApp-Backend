@@ -16,13 +16,13 @@ namespace ADSBackend.Models.JobsViewModel
         [Required]
         [Display(Name = "Job Description")]
         public string JobDetail { get; set; }
-        [DataType(DataType.Currency)]
+     
         [Display(Name = "Hourly Wage")]
         public string Wage { get; set; }
-        [DataType(DataType.Duration)]
+  
         [Display(Name = "Work Hours")]
         public string Hours { get; set; }
-        public string Test { get; set; }
+     
     }
 
 }
