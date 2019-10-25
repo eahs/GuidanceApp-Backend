@@ -133,6 +133,26 @@ namespace ADSBackend.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ADSBackend.Models.JobsViewModel.Jobs", b =>
+                {
+                    b.Property<string>("AJobs")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Hours");
+
+                    b.Property<string>("JobDetail")
+                        .IsRequired();
+
+                    b.Property<string>("JobTitle")
+                        .IsRequired();
+
+                    b.Property<string>("Wage");
+
+                    b.HasKey("AJobs");
+
+                    b.ToTable("Jobs");
+                });
+
             modelBuilder.Entity("ADSBackend.Models.LinksModels.LinkItem", b =>
                 {
                     b.Property<string>("Id")

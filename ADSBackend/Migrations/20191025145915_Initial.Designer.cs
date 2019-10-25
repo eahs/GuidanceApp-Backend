@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADSBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190904182201_Initial")]
+    [Migration("20191025145915_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,25 @@ namespace ADSBackend.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ADSBackend.Models.CalendarViewModel.Calendar", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Date")
+                        .IsRequired();
+
+                    b.Property<string>("Desc");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("id");
+
+                    b.ToTable("Calendar");
+                });
 
             modelBuilder.Entity("ADSBackend.Models.ConfigurationItem", b =>
                 {
@@ -114,6 +133,48 @@ namespace ADSBackend.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("ADSBackend.Models.JobsViewModel.Jobs", b =>
+                {
+                    b.Property<string>("AJobs")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Hours");
+
+                    b.Property<string>("JobDetail")
+                        .IsRequired();
+
+                    b.Property<string>("JobTitle")
+                        .IsRequired();
+
+                    b.Property<string>("Wage");
+
+                    b.HasKey("AJobs");
+
+                    b.ToTable("Jobs");
+                });
+
+            modelBuilder.Entity("ADSBackend.Models.LinksModels.LinkItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Link")
+                        .IsRequired();
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(75);
+
+                    b.Property<string>("Type")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LinkItem");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

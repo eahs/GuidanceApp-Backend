@@ -52,6 +52,21 @@ namespace ADSBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Calendar",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: false),
+                    Desc = table.Column<string>(nullable: true),
+                    Date = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Calendar", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ConfigurationItem",
                 columns: table => new
                 {
@@ -61,6 +76,36 @@ namespace ADSBackend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ConfigurationItem", x => x.Key);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Jobs",
+                columns: table => new
+                {
+                    AJobs = table.Column<string>(nullable: false),
+                    JobTitle = table.Column<string>(nullable: false),
+                    JobDetail = table.Column<string>(nullable: false),
+                    Wage = table.Column<string>(nullable: true),
+                    Hours = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Jobs", x => x.AJobs);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LinkItem",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(maxLength: 75, nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Link = table.Column<string>(nullable: false),
+                    Type = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LinkItem", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -227,7 +272,16 @@ namespace ADSBackend.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Calendar");
+
+            migrationBuilder.DropTable(
                 name: "ConfigurationItem");
+
+            migrationBuilder.DropTable(
+                name: "Jobs");
+
+            migrationBuilder.DropTable(
+                name: "LinkItem");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

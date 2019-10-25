@@ -6,22 +6,24 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ADSBackend.Models.AppointmentModel
 {
-    public class Jobs
+    public class Appointment
     {
         [Key]
-        public string Appointment { get; set; }
+        public string Appoint { get; set; }
         [Required]
         [Display(Name = "Name")]
         public string Name { get; set; }
         [Required]
-        [Display(Name = "Councelor")]
-        public string Councelor { get; set; }
+        [Display(Name = "Counselor")]
+        public string Counselor { get; set; }
         [DataType(DataType.Currency)]
-        [Display(Name = "Hourly Wage")]
-        public string Wage { get; set; }
+        [Display(Name = "Date")]
+        public string Date { get; set; }
         [DataType(DataType.Duration)]
-        [Display(Name = "Work Hours")]
-        public string Hours { get; set; }
-        public string Test { get; set; }
+        [Display(Name = "Time")]
+        public string Time { get; set; }
+        [Display(Name = "Description")]
+        public string Desc { get; set; }
+        
     }
 }
