@@ -1,0 +1,42 @@
+﻿@model ADSBackend.Models.JobsViewModel.Jobs
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jobs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDetail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobDetail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Wage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Wage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hours)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AJobs">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
