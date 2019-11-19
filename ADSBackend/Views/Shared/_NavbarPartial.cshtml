@@ -63,7 +63,9 @@
                     <li is-active-route asp-controller="Configuration">
                         <a asp-controller="Configuration" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Settings</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-
+                            <li is-active-route asp-controller="Staffs">
+                                <a asp-controller="Staffs" asp-action="Index"><i class="fa fa-user"></i><span class="nav-label">Manage Counselors</span></a>
+                            </li>
                             <li is-active-route asp-controller="Users">
                                 <a asp-controller="Users" asp-action="Index"><i class="fa fa-users"></i><span class="nav-label">Manage Users</span></a>
                             </li>

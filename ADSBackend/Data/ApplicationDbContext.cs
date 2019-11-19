@@ -7,6 +7,7 @@ using ADSBackend.Models.CalendarViewModel;
 using ADSBackend.Models.JobsViewModel;
 using ADSBackend.Models.AppointmentModel;
 using ADSBackend.Models.SummerWork;
+using ADSBackend.Models.StaffViewModel;
 
 namespace ADSBackend.Data
 {
@@ -37,6 +38,8 @@ namespace ADSBackend.Data
         public DbSet<ADSBackend.Models.AppointmentModel.Appointment> Appointment { get; set; }
 
         public DbSet<ADSBackend.Models.SummerWork.SummerWork> SummerWork { get; set; }
+
+        public DbSet<ADSBackend.Models.StaffViewModel.Staff> Staff { get; set; }
         
 
     }

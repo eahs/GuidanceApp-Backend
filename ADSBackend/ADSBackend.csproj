@@ -49,7 +49,6 @@
 
   <ItemGroup>
     <Folder Include="css\plugins\" />
-    <Folder Include="Models\NewFolder\" />
   </ItemGroup>
 
 </Project>
