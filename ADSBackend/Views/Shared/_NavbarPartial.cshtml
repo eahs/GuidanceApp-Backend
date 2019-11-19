@@ -42,23 +42,32 @@
                 </li>
                 @if (User.IsInRole("Admin"))
                 {
-                    <li is-active-route asp-controller="Users">
+                    <!-- <li is-active-route asp-controller="Users">
                         <a asp-controller="Users" asp-action="Index"><i class="fa fa-users"></i><span class="nav-label">Manage Users</span></a>
-                    </li>
+                    </li> -->
                     <li is-active-route asp-controller="Linkz">
-                        <a asp-controller="Link" asp-action="Index"><i class="fa fa-bell"></i><span class="nav-label">Manage Links</span></a>
+                        <a asp-controller="Link" asp-action="Index"><i class="fa fa-link"></i><span class="nav-label">Manage Links</span></a>
                     </li>
                     <li is-active-route asp-controller="Calendar">
                         <a asp-controller="Calendar" asp-action="Index"><i class="fa fa-calendar"></i><span class="nav-label">Calendar</span></a>
                     </li>
                     <li is-active-route asp-controller="Job">
-                        <a asp-controller="Job" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Jobs</span></a>
+                        <a asp-controller="Job" asp-action="Index"><i class="fa fa-briefcase"></i><span class="nav-label">Jobs</span></a>
                     </li>
                     <li is-active-route asp-controller="Appointments">
-                        <a asp-controller="Appointments" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Appointments</span></a>
+                        <a asp-controller="Appointments" asp-action="Index"><i class="fa fa-list-alt"></i><span class="nav-label">Appointments</span></a>
                     </li>
                     <li is-active-route asp-controller="Configuration">
-                        <a asp-controller="Configuration" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Configuration</span></a>
+                        <a asp-controller="Configuration" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Settings</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+
+                            <li is-active-route asp-controller="Users">
+                                <a asp-controller="Users" asp-action="Index"><i class="fa fa-users"></i><span class="nav-label">Manage Users</span></a>
+                            </li>
+                            <li is-active-route asp-controller="Configuration">
+                                <a asp-controller="Configuration" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Configuration</span></a>
+                            </li>
+                        </ul>
                     </li>
 
                 }
