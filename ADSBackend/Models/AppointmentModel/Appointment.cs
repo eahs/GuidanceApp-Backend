@@ -14,9 +14,13 @@ namespace ADSBackend.Models.AppointmentModel
         [Display(Name = "Name")]
         public string Name { get; set; }
         [Required]
+        [Display(Name = "Grade Level")]
+        public int Grade { get; set; }
+        [Required]
         [Display(Name = "Counselor")]
         public string Counselor { get; set; }
-        [DataType(DataType.Currency)]
+        [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Date")]
         public string Date { get; set; }
         [DataType(DataType.Duration)]
@@ -24,6 +28,7 @@ namespace ADSBackend.Models.AppointmentModel
         public string Time { get; set; }
         [Display(Name = "Description")]
         public string Desc { get; set; }
+
         
     }
 }

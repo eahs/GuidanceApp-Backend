@@ -7,17 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ADSBackend.Data;
 using ADSBackend.Models.AppointmentModel;
+using Microsoft.Extensions.Logging;
 
 namespace ADSBackend.Controllers
 {
     public class AppointmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger _IL;
+        
 
-        public AppointmentsController(ApplicationDbContext context)
+        public AppointmentsController(ApplicationDbContext context, ILogger<AppointmentsController> IL)
         {
             _context = context;
+            _IL = IL;
         }
+        public string ErrorMessage { get; set; }
 
         // GET: Appointments
         public async Task<IActionResult> Index()
@@ -54,8 +59,13 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Appoint,Name,Counselor,Date,Time,Desc")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("Appoint,Name,Grade,Counselor,Date,Time,Desc")] Appointment appointment)
         {
+            if (appointment.Grade < 9 || appointment.Grade > 12)
+            {
+                appointment.Grade = 9;
+            }
+            
             if (ModelState.IsValid)
             {
                 _context.Add(appointment);
@@ -86,7 +96,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Appoint,Name,Counselor,Date,Time,Desc")] Appointment appointment)
+        public async Task<IActionResult> Edit(string id, [Bind("Appoint,Name,Grade,Counselor,Date,Time,Desc")] Appointment appointment)
         {
             if (id != appointment.Appoint)
             {
