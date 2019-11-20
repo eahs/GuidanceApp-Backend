@@ -53,9 +53,9 @@
                             </td>
                            
                             <td>
-                                <a class="btn  btn-xs" asp-action="Edit" asp-route-id="@item.AJobs">Edit</a> |
-                                <a class="btn  btn-xs" asp-action="Details" asp-route-id="@item.AJobs">Details</a> |
-                                <a class="btn  btn-xs" asp-action="Delete" asp-route-id="@item.AJobs">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.AJobs" class=" btn fa fa-wrench btn-outline btn-rounded btn-success"> Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.AJobs" class=" btn fa btn-outline btn-rounded btn-info"> Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.AJobs" class=" btn fa fa-trash btn-outline btn-rounded btn-danger"> Delete</a>
                             </td>
                         </tr>
                     }

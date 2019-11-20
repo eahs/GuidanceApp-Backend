@@ -10,6 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <div class="ibox ibox-content b-r-md"
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -50,13 +51,17 @@
                     <span asp-validation-for="Desc" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Add" class="btn btn-block btn-success"/>
+                </div>
+                <div>
+                    <a asp-action="Index" class="btn btn-default btn-sm">Back to List</a>
                 </div>
 </form>
+        </div>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
 

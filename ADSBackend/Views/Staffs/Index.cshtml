@@ -54,9 +54,9 @@
                 @Html.DisplayFor(modelItem => item.CEmail)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.id" class=" btn fa fa-wrench btn-outline btn-rounded btn-success"> Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id" class=" btn fa btn-outline btn-rounded btn-info"> Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id" class=" btn fa fa-trash btn-outline btn-rounded btn-danger"> Delete</a>
             </td>
         </tr>
 }

@@ -28,12 +28,6 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Date)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Time)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Desc)
-                        </th>
 
                         <th>
                             <p>Configure Details</p>
@@ -57,15 +51,9 @@
                             @Html.DisplayFor(modelItem => item.Date)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Time)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Desc)
-                        </td>
-                        <td>
-                            <a class="btn  btn-xs" asp-action="Edit" asp-route-id="@item.Appoint">Edit</a> |
-                            <a class="btn  btn-xs" asp-action="Details" asp-route-id="@item.Appoint">Details</a> |
-                            <a class="btn  btn-xs" asp-action="Delete" asp-route-id="@item.Appoint">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Appoint" class=" btn fa fa-wrench btn-outline btn-rounded btn-success"> Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Appoint" class=" btn fa btn-outline btn-rounded btn-info"> Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Appoint" class=" btn fa fa-trash btn-outline btn-rounded btn-danger"> Delete</a>
                         </td>
                     </tr>
                     }
