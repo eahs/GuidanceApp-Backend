@@ -10,24 +10,24 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <div class="ibox ibox-content b-r-md"
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Grade" class="control-label"></label>
-                <select asp-for="Grade" class="form-control">
-                    <option value="Grade">9</option>
-                    <option value="Grade">10</option>
-                    <option value="Grade">11</option>
-                    <option value="Grade">12</option>
-                </select>
-                <span asp-validation-for="Grade" class="text-danger"></span>
-            </div>
+        <div class="ibox ibox-content b-r-md">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Grade" class="control-label"></label>
+                    <select asp-for="Grade" class="form-control">
+                        <option value="Grade">9</option>
+                        <option value="Grade">10</option>
+                        <option value="Grade">11</option>
+                        <option value="Grade">12</option>
+                    </select>
+                    <span asp-validation-for="Grade" class="text-danger"></span>
+                </div>
                 <div class="form-group">
                     <label asp-for="Counselor" class="control-label"></label>
                     <select asp-for="Counselor" class="form-control">
@@ -51,12 +51,12 @@
                     <span asp-validation-for="Desc" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Add" class="btn btn-block btn-success"/>
+                    <input type="submit" value="Add" class="btn btn-block btn-success" />
                 </div>
                 <div>
                     <a asp-action="Index" class="btn btn-default btn-sm">Back to List</a>
                 </div>
-</form>
+            </form>
         </div>
     </div>
 </div>

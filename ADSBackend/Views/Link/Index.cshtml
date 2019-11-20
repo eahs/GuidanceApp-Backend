@@ -45,9 +45,9 @@
                             @Html.DisplayFor(modelItem => item.Link)
                         </td>
                         <td>
-                            <a class="btn  btn-xs" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a class="btn  btn-xs" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a class="btn  btn-xs" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class=" btn fa fa-wrench btn-outline btn-rounded btn-success"> Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" class=" btn fa btn-outline btn-rounded btn-info"> Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" class=" btn fa fa-trash btn-outline btn-rounded btn-danger"> Delete</a>
                         </td>
                     </tr>
                     }
