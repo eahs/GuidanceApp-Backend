@@ -61,10 +61,7 @@ namespace ADSBackend.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Appoint,Name,Grade,Counselor,Date,Time,Desc")] Appointment appointment)
         {
-            if (appointment.Grade < 9 || appointment.Grade > 12)
-            {
-                appointment.Grade = 9;
-            }
+          
             
             if (ModelState.IsValid)
             {

@@ -15,7 +15,7 @@ namespace ADSBackend.Models.AppointmentModel
         public string Name { get; set; }
         [Required]
         [Display(Name = "Grade Level")]
-        public int Grade { get; set; }
+        public string Grade { get; set; }
         [Required]
         [Display(Name = "Counselor")]
         public string Counselor { get; set; }
