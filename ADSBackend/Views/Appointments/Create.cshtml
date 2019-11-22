@@ -36,28 +36,25 @@
                     </select>
                     <span asp-validation-for="Counselor" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+
+                <div class="input-group date" data-provide="datepicker">
                     <label asp-for="Date" class="control-label"></label>
-                    <input asp-for="Date" class="form-control" />
-                    <span asp-validation-for="Date" class="text-danger"></span>
-                </div>
-                <div class="input-group date">
+                    <input asp-for="Date" type="text" class="form-control" value="11/22/2019">
                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                    <input type="text" class="form-control" value="03/04/2014">
+                    <span asp-validation-for="Date" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Time" class="control-label"></label>
                     <input asp-for="Time" placeholder="Format: 0:00 AM/PM" class="form-control" />
                     <span asp-validation-for="Time" class="text-danger"></span>
                 </div>
-                <div class="input-group clockpicker" data-autoclose="true">
-                    <label asp-for="Time" class="control-label"></label>
-                    <input asp-for="Time" type="text" class="form-control" value="">
+                <div class="input-group clockpicker">
+                    <input type="text" class="form-control" value="09:30">
                     <span class="input-group-addon">
                         <span class="fa fa-clock-o"></span>
                     </span>
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                     <label asp-for="Desc" class="control-label"></label>
                     <textarea asp-for="Desc" class="form-control" rows="3"></textarea>
                     <span asp-validation-for="Desc" class="text-danger"></span>
@@ -94,10 +91,15 @@
             placeholder: 'Position'
         });
     </script>
-    <script type=" text/javascript" class="datepicker">
-        $(document).ready(function () {
-                $('.js-example-basic-single').select2();
-            });
+    <script type="text/javascript" class="datepicker">
+          $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+              startDate: '-3d'
+            
+          });
+        document.ready(function () {
+            $('.clockpicker').clockpicker();
+        })
     </script>
 
 }
