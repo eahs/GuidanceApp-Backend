@@ -15,54 +15,60 @@
         </a>
     </div>
 </div> -->
-    <div class="row  border-bottom white-bg dashboard-header">
+<div class="row  border-bottom white-bg dashboard-header">
 
-        <div class="col-sm-3">
-            <h2>Welcome To The Guidance Backend</h2>
+    <div class="col-sm-3">
+        <h2>Welcome To The Guidance Backend</h2>
+    </div>
+</div>
+@if (User.IsInRole("Admin"))
+{
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">EAHS Guidance Backend</h1>
+            <p class="lead">Welcome to the backend of the EAHS Guidance App</p>
         </div>
     </div>
-        @if (User.IsInRole("Admin"))
-        {
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>Appointments</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <p>List of upcoming appointments.</p>
-                            <a href="#" class="btn btn-primary">
-                                <span class="fa fa-recycle"></span> Reduce, Reuse, and Recycle
-                            </a>
-                        </div>
-                    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Appointments</h5>
                 </div>
-                <div class="col-lg-4">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>My Account</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <p>It's how you log in!</p>
-                            <a asp-controller="Manage" asp-action="Index" class="btn btn-default">
-                                <span class="fa fa-user-circle-o"></span> Manage Account
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>Configuration</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <p>Configuration stuff here.</p>
-                            <a asp-controller="Configuration" asp-action="Index" class="btn btn-default">
-                                <span class="fa fa-cog"></span> Update Configuration
-                            </a>
-                        </div>
-                    </div>
+                <div class="ibox-content">
+                    <p>List of upcoming appointments.</p>
+                    <a href="#" class="btn btn-primary">
+                        <span class="fa fa-recycle"></span> Reduce, Reuse, and Recycle
+                    </a>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>My Account</h5>
+                </div>
+                <div class="ibox-content">
+                    <p>It's how you log in!</p>
+                    <a asp-controller="Manage" asp-action="Index" class="btn btn-default">
+                        <span class="fa fa-user-circle-o"></span> Manage Account
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Configuration</h5>
+                </div>
+                <div class="ibox-content">
+                    <p>Configuration stuff here.</p>
+                    <a asp-controller="Configuration" asp-action="Index" class="btn btn-default">
+                        <span class="fa fa-cog"></span> Update Configuration
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        }
+}
