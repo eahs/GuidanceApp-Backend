@@ -1,7 +1,4 @@
 ﻿@model ADSBackend.Models.AppointmentModel.Appointment
-<link href="~/lib/Clock/clockpicker.css" rel="stylesheet">
-<link href="~/css/select2.min.css" rel="stylesheet" />
-<script src="~/js/select2.min.js"></script>
 
 @{
     ViewData["Title"] = "Create";
@@ -21,73 +18,9 @@
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-                <div class="s2-example">
-                    <select class="js-example-basic-single form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true" data-select2-id="58">
-                        <optgroup label="Alaskan/Hawaiian Time Zone">
-                            <option value="AK" data-select2-id="60">Alaska</option>
-                            <option value="HI">Hawaii</option>
-                        </optgroup>
-                        <optgroup label="Pacific Time Zone">
-                            <option value="CA">California</option>
-                            <option value="NV">Nevada</option>
-                            <option value="OR">Oregon</option>
-                            <option value="WA">Washington</option>
-                        </optgroup>
-                        <optgroup label="Mountain Time Zone">
-                            <option value="AZ">Arizona</option>
-                            <option value="CO">Colorado</option>
-                            <option value="ID">Idaho</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="UT">Utah</option>
-                            <option value="WY">Wyoming</option>
-                        </optgroup>
-                        <optgroup label="Central Time Zone">
-                            <option value="AL">Alabama</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TX">Texas</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="WI">Wisconsin</option>
-                        </optgroup>
-                        <optgroup label="Eastern Time Zone">
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="IN">Indiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="OH">Ohio</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WV">West Virginia</option>
-                        </optgroup>
-                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="59" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-2e7l-container"><span class="select2-selection__rendered" id="select2-2e7l-container" role="textbox" aria-readonly="true" title="Alaska">Alaska</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                </div>
                 <div class="form-group">
                     <label asp-for="Grade" class="control-label"></label>
-                    <select asp-for="Grade" class="js-example-basic-single js-states form-control select2-hidden-accessible">
+                    <select asp-for="Grade" class="js-example-basic-single form-control select2">
                         <option value="Grade">9</option>
                         <option value="Grade">10</option>
                         <option value="Grade">11</option>
@@ -97,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Counselor" class="control-label"></label>
-                    <select asp-for="Counselor" class="form-control">
+                    <select asp-for="Counselor" class="js-example-basic-single form-control select2">
                         <option inert>Select a Grade level first</option>
                         <option>Counselor 01</option>
                     </select>
@@ -107,6 +40,10 @@
                     <label asp-for="Date" class="control-label"></label>
                     <input asp-for="Date" class="form-control" />
                     <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="input-group date">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input type="text" class="form-control" value="03/04/2014">
                 </div>
                 <div class="form-group">
                     <label asp-for="Time" class="control-label"></label>
@@ -135,18 +72,32 @@
         </div>
     </div>
 </div>
+@section Styles {
 
-<div>
+    <link href="~/lib/Clock/clockpicker.css" rel="stylesheet">
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+    <link href="~/css/datepicker.css" rel="stylesheet" />
+    <link href="~/lib/Clock/clockpicker.css" rel="stylesheet" />
+}
 
-</div>
-<script src="lib/Clock/clockpicker.js"></script>
-<script type="text/javascript" class="js-code-example-basic-single">
-    $(document).ready(function () {
-        $('.js-example-basic-single').select2();
-    });
-    $("#position").select2({
-        allowClear:true,
-        placeholder: 'Position'
-      });
-</script>
+@section Scripts {
 
+    <script src="~/js/select2.min.js"></script>
+    <script src="~/js/datepicker.js"></script>
+    <script src="~/lib/Clock/clockpicker.js"></script>
+    <script type="text/javascript" class="js-code-example-basic-single">
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+        $("#position").select2({
+            allowClear: true,
+            placeholder: 'Position'
+        });
+    </script>
+    <script type=" text/javascript" class="datepicker">
+        $(document).ready(function () {
+                $('.js-example-basic-single').select2();
+            });
+    </script>
+
+}
