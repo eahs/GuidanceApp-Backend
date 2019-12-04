@@ -1,0 +1,49 @@
+﻿@model ADSBackend.Models.CalendarViewModel.Calendar
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Calendar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="ibox ibox-content b-r-md">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Desc" class="control-label"></label>
+                    <input asp-for="Desc" class="form-control" />
+                    <span asp-validation-for="Desc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <script type="text/javascript">
+                        var Date
+                    </script>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-block btn-success" />
+                </div>
+                <div>
+                    <a asp-action="Index" class="btn btn-default btn-sm">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
