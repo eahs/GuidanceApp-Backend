@@ -23,9 +23,15 @@ namespace ADSBackend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+#if DEBUG
+            string conn = Configuration.GetConnectionString("ADSBackendEAHSContext");
+#else
+            string conn = Configuration.GetConnectionString("ADSBackendProductionContext");
+#endif
+
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("ADSBackendContext"));
+                options.UseSqlServer(conn);
             });
 
             services.AddIdentity<ApplicationUser, ApplicationRole>()
