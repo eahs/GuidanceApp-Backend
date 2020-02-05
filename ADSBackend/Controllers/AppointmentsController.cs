@@ -49,8 +49,10 @@ namespace ADSBackend.Controllers
         }
 
         // GET: Appointments/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var staff = await _context.Staff.ToListAsync();
+            ViewBag.Staff = new MultiSelectList(staff, "id", "CName");
             return View();
         }
 
@@ -85,6 +87,8 @@ namespace ADSBackend.Controllers
             {
                 return NotFound();
             }
+            var staff = await _context.Staff.ToListAsync();
+            ViewBag.Staff = new MultiSelectList(staff, "id", "CName");
             return View(appointment);
         }
 

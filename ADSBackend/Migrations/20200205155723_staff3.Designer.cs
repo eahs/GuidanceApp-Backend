@@ -4,14 +4,16 @@ using ADSBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ADSBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200205155723_staff3")]
+    partial class staff3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,8 +26,7 @@ namespace ADSBackend.Migrations
                     b.Property<string>("Appoint")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Counselorid")
-                        .IsRequired();
+                    b.Property<string>("Counselorid");
 
                     b.Property<string>("Date")
                         .IsRequired();
@@ -306,8 +307,7 @@ namespace ADSBackend.Migrations
                 {
                     b.HasOne("ADSBackend.Models.StaffViewModel.Staff", "Counselor")
                         .WithMany()
-                        .HasForeignKey("Counselorid")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("Counselorid");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

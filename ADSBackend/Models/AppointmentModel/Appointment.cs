@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using ADSBackend.Models.StaffViewModel;
 
 namespace ADSBackend.Models.AppointmentModel
 {
@@ -16,9 +17,9 @@ namespace ADSBackend.Models.AppointmentModel
         [Required]
         [Display(Name = "Grade Level")]
         public string Grade { get; set; }
-        [Required]
+        
         [Display(Name = "Counselor")]
-        public string Counselor { get; set; }
+        public Staff Counselor { get; set; }
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Date")]

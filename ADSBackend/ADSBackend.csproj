@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -8,12 +8,21 @@
 
   <ItemGroup>
     <Compile Remove="Data\Migrations\**" />
+    <Compile Remove="Models\CalendarViewModel\**" />
+    <Compile Remove="Views\Calendars\**" />
     <Content Remove="Data\Migrations\**" />
+    <Content Remove="Models\CalendarViewModel\**" />
+    <Content Remove="Views\Calendars\**" />
     <EmbeddedResource Remove="Data\Migrations\**" />
+    <EmbeddedResource Remove="Models\CalendarViewModel\**" />
+    <EmbeddedResource Remove="Views\Calendars\**" />
     <None Remove="Data\Migrations\**" />
+    <None Remove="Models\CalendarViewModel\**" />
+    <None Remove="Views\Calendars\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\CalendarsController.cs" />
     <Compile Remove="Migrations\20191023025331_005.cs" />
     <Compile Remove="Migrations\20191023025331_005.Designer.cs" />
     <Compile Remove="Migrations\20191023025522_006.cs" />
@@ -26,6 +35,10 @@
     <Compile Remove="Migrations\20191023143614_009.Designer.cs" />
     <Compile Remove="Migrations\20191023152002_010.cs" />
     <Compile Remove="Migrations\20191023152002_010.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Calendar.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

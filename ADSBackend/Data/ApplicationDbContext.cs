@@ -3,7 +3,6 @@ using ADSBackend.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ADSBackend.Models.LinksModels;
-using ADSBackend.Models.CalendarViewModel;
 using ADSBackend.Models.JobsViewModel;
 using ADSBackend.Models.AppointmentModel;
 using ADSBackend.Models.SummerWork;
@@ -30,8 +29,6 @@ namespace ADSBackend.Data
         }
 
         public DbSet<ADSBackend.Models.LinksModels.LinkItem> LinkItem { get; set; }
-
-        public DbSet<ADSBackend.Models.CalendarViewModel.Calendar> Calendar { get; set; }
 
         public DbSet<ADSBackend.Models.JobsViewModel.Jobs> Jobs { get; set; }
 

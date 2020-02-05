@@ -30,9 +30,9 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Counselor" class="control-label"></label>
-                    <select asp-for="Counselor" class="js-example-basic-single form-control select2">
+                    <select asp-for="Counselor" asp-items="ViewBag.Staff" class="js-example-basic-single form-control select2">
                         <option inert>Select a Grade level first</option>
-                        <option>Counselor 01</option>
+                        <option>staff</option>
                     </select>
                     <span asp-validation-for="Counselor" class="text-danger"></span>
                 </div>
