@@ -12,7 +12,7 @@ namespace ADSBackend.Models.StaffViewModel
         public string id { get; set; }
         [Required]
         [Display(Name = "Counselor Name")]
-       
+
         public string CName { get; set; }
         [Required]
         [Display(Name = "Counselor Grade Level")]
@@ -22,6 +22,7 @@ namespace ADSBackend.Models.StaffViewModel
         [Display(Name = "Counselor Email")]
         public string CEmail { get; set; }
 
+        
 
     }
 }
