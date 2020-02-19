@@ -1,9 +1,14 @@
-﻿using ADSBackend.Models.ApiModels;
+﻿using ADSBackend.Models;
+using ADSBackend.Models.ApiModels;
+using ADSBackend.Models.LinksModels;
+using ADSBackend.Models.JobsViewModel;
+using ADSBackend.Data;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ADSBackend.Controllers
 {
@@ -13,6 +18,7 @@ namespace ADSBackend.Controllers
     {
         private readonly Services.Configuration Configuration;
         private readonly Services.Cache _cache;
+        private readonly ApplicationDbContext _context;
 
         public ApiController(Services.Configuration configuration, Services.Cache cache)
         {
@@ -34,6 +40,20 @@ namespace ADSBackend.Controllers
             var feedItems = await _cache.GetAsync("RSS", fetchNewsFromSource, TimeSpan.FromMinutes(5));
             return feedItems.OrderByDescending(x => x.PublishDate).ToList();
         }
+        //GET: api/Links
+        [HttpGet("Links")]
+        public async Task<List<LinkItem>> GetLinks()
+        {
+            var links = await _context.LinkItem.ToListAsync();
+            return links;
+        }
+        //GET: api/Jobs
+        [HttpGet("Jobs")]
+        public async Task<List<Jobs>> GetJobs()
+        {
+            var jobs = await _context.Jobs.ToListAsync();
+            return jobs;
+        }
 
         // GET: api/Config
         [HttpGet("Config")]
@@ -42,5 +62,7 @@ namespace ADSBackend.Controllers
             // TODO: extend this object to include some configuration items
             return new ConfigResponse();
         }
+
+   
     }
 }
